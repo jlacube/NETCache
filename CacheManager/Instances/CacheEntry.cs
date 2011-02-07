@@ -1,9 +1,11 @@
 using System;
 using System.Threading;
 
-namespace CacheManager
+using NETCache.CacheManager.Interfaces;
+
+namespace NETCache.CacheManager
 {
-	public class CacheEntry<K,V>
+	class CacheEntry<K,V> : ICacheEntry<K,V>
 	{
 		private K key;
 		private V value;

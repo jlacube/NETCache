@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{75937727-F156-4A9C-A46D-CD0F0A0764EB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>CacheManager</RootNamespace>
+    <RootNamespace>NETCache.CacheManager</RootNamespace>
     <AssemblyName>CacheManager</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
@@ -33,13 +33,23 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="CacheManager.cs" />
-    <Compile Include="CacheEntry.cs" />
+    <Compile Include="Instances\CacheManager.cs" />
+    <Compile Include="Instances\CacheEntry.cs" />
+    <Compile Include="Interfaces\ICacheEntry.cs" />
+    <Compile Include="Interfaces\ICacheManager.cs" />
+    <Compile Include="Interfaces\IDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Mono.C5" />
-    <Reference Include="Mono.Posix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Factories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CacheTools\CacheTools.csproj">
+      <Project>{65C3E3D5-36AE-4276-8ECC-4AA9FD37B8DF}</Project>
+      <Name>CacheTools</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
